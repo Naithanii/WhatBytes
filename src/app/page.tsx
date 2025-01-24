@@ -3,8 +3,23 @@ import { useState } from "react";
 import HomePage from "./components/HomePage";
 import Navbar from "./components/Navbar";
 
+// Define the type for the data state
+type Data = {
+  rank: number;
+  percentile: number;
+  correctAnswers: number;
+  totalQuestions: number;
+  syllabusAnalysis: {
+    htmlTools: number;
+    tagsReferences: number;
+    tablesReferences: number;
+    cssBasics: number;
+  };
+};
+
 export default function Page() {
-  const [data, setData] = useState({
+  // Set the type for the data state
+  const [data, setData] = useState<Data>({
     rank: 4,
     percentile: 90,
     correctAnswers: 12,
@@ -17,7 +32,8 @@ export default function Page() {
     },
   });
 
-  const updateData = (newData) => setData(newData);
+  // Explicitly type the parameter for updateData
+  const updateData = (newData: Data) => setData(newData);
 
   return (
     <div>
